@@ -1,4 +1,4 @@
-#include "A.h"
+#include "../header/A.h"
 #include <iostream>
 
 A::A(int i) : foo(i) { std::cout << __FUNCTION__ << std::endl; }   // define constructor | action: print out the undecorated name of the enclosing function

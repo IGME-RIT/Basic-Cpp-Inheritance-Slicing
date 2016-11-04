@@ -28,63 +28,63 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 #include <iostream> // for cout
-#include "A.h"      // include header files
-#include "B.h"
+#include "../header/A.h"      // include header files
+#include "../header/B.h"
 using namespace std;// for cout
 
 void main() {
 
-	cout << "\nMake B object called test1: " << endl;  // output: Make B object called test1:
-	B test1(100,200);                                  // define a B type object test1; assign 100 and 200 as its parameters | output: A::A
-                                                       //                                                                         B::B
-	cout << "Foo:  " << test1.foo << endl;             // output: Foo:  100
-	cout << "Bar:  " << test1.bar << endl;             // output: Bar:  200
+    cout << "\nMake B object called test1: " << endl;  // output: Make B object called test1:
+    B test1(100,200);                                  // define a B type object test1; assign 100 and 200 as its parameters | output: A::A
+                                                        //                                                                         B::B
+    cout << "Foo:  " << test1.foo << endl;             // output: Foo:  100
+    cout << "Bar:  " << test1.bar << endl;             // output: Bar:  200
 
-	/*
-	cout << "\nA test2 = test1: " << endl;  // output: A test2 = test1:
-	A test2 = test1;                        // define a A type object test2; assign test1 to it
-	                                        // output: A::A
-	                                        //         B::B
-	cout << "Foo:  " << test2.foo << endl;  // output: Foo:  -858993460
-	cout << "Bar:  " << test2.bar << endl;  // does this succeed? Ans: No. bar is not a member of 'A'
-	*/
+    /*
+    cout << "\nA test2 = test1: " << endl;  // output: A test2 = test1:
+    A test2 = test1;                        // define a A type object test2; assign test1 to it
+                                            // output: A::A
+                                            //         B::B
+    cout << "Foo:  " << test2.foo << endl;  // output: Foo:  -858993460
+    cout << "Bar:  " << test2.bar << endl;  // does this succeed? Ans: No. bar is not a member of 'A'
+    */
 
-	/*
-	cout << "\nA& test3 = test1: " << endl;  // output: A& test3 = test1:
-	A& test3 = test1;                        // define a reference 'test3' to A type object; assign test1 to it
-	                                         // output: A::A
-	                                         //         B::B
-	cout << "Foo:  " << test3.foo << endl;   // output: Foo:  100
-	cout << "Bar:  " << test3.bar << endl;   // does this succeed? Ans: No. bar is not a  member of 'A'
-	*/
+    /*
+    cout << "\nA& test3 = test1: " << endl;  // output: A& test3 = test1:
+    A& test3 = test1;                        // define a reference 'test3' to A type object; assign test1 to it
+                                                // output: A::A
+                                                //         B::B
+    cout << "Foo:  " << test3.foo << endl;   // output: Foo:  100
+    cout << "Bar:  " << test3.bar << endl;   // does this succeed? Ans: No. bar is not a  member of 'A'
+    */
 
-	/*
-	cout << "\nA* test4 = &test1: " << endl;  // output: A* test4 = &test1: 
-	A* test4 = &test1;                        // define a pointer to a A type object; assign the address of test1 to it
-	                                          // output: A::A
-	                                          //         B::B
-	cout << "Foo:  " << test4->foo << endl;   // output: Foo:  100
-	cout << "Bar:  " << test4->bar << endl;   // does this succeed? Ans: No. bar is not a  member of 'A'
-	*/
+    /*
+    cout << "\nA* test4 = &test1: " << endl;  // output: A* test4 = &test1: 
+    A* test4 = &test1;                        // define a pointer to a A type object; assign the address of test1 to it
+                                                // output: A::A
+                                                //         B::B
+    cout << "Foo:  " << test4->foo << endl;   // output: Foo:  100
+    cout << "Bar:  " << test4->bar << endl;   // does this succeed? Ans: No. bar is not a  member of 'A'
+    */
 
-	/*
-	cout << "\nA* test5 = new B(100,200): " << endl;          // output: A* test5 = new B(100,200): 
-	A* test5 = new B(100,200);                                // Creating a pointer to Base class named A and then initializing it to B class, put 100 and 200 as its parameters
-	                                                          // output: A::A
-	                                                          //         B::B
-	cout << "Foo:  " << test5->foo << endl;                   // output: Foo:	100
-	cout << "Bar:  " << static_cast<B*>(test5)->bar << endl;  // output: Bar:	200
-	cout << "Bar:  " << dynamic_cast<B*>(test5)->bar << endl; // dynamic safer? 
+    /*
+    cout << "\nA* test5 = new B(100,200): " << endl;          // output: A* test5 = new B(100,200): 
+    A* test5 = new B(100,200);                                // Creating a pointer to Base class named A and then initializing it to B class, put 100 and 200 as its parameters
+                                                              // output: A::A
+                                                              //         B::B
+    cout << "Foo:  " << test5->foo << endl;                   // output: Foo: 100
+    cout << "Bar:  " << static_cast<B*>(test5)->bar << endl;  // output: Bar: 200
+    cout << "Bar:  " << dynamic_cast<B*>(test5)->bar << endl; // dynamic safer? 
                                                               // Ans: Yes, because static_cast does no run-time type check, while dynamic_cast does  https://msdn.microsoft.com/en-us/library/c36yw7x9.aspx
 
-	cout << "\nDelete test5: " << endl;                       // output: Delete test5: 
-	delete test5;                                             // deallocation  | output: B::~B
+    cout << "\nDelete test5: " << endl;                       // output: Delete test5: 
+    delete test5;                                             // deallocation  | output: B::~B
     */                                                        //                         A::~A
-	
 
-	cout << "\nDelete everything else: " << endl;  // output: Delete everything else:
-	                                               //         test1         test2         test3         test4         test5     
+
+    cout << "\nDelete everything else: " << endl;  // output: Delete everything else:
+                                                   //         test1         test2         test3         test4         test5     
                                                    //         B::~B         A::~A         B::~B         B::~B         B::~B
-	                                               //         A::~A         B::~B         A::~A         A::~A         A::~A
-	                                               //                       A::~A
+                                                   //         A::~A         B::~B         A::~A         A::~A         A::~A
+                                                   //                       A::~A
 }

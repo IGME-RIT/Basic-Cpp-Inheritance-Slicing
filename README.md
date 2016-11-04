@@ -1,7 +1,6 @@
-# TestSlicing
+# Inheritance Slicing
 
 This tutorial illustrates the problem when using the virtual function called slicing.
-It also covers the concept of constructor and destructor, predefined macros, and virtual function.
 
 # Setup
 

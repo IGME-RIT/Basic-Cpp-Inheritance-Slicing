@@ -1,4 +1,4 @@
-#include "B.h"
+#include "../header/B.h"
 #include <iostream>
 
 B::B(int x, int y) : A(x), bar(y) { std::cout << __FUNCTION__ << std::endl; }  // define the constructor | action: print out the undecorated name of the enclosing function
